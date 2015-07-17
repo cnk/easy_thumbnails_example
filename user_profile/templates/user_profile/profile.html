@@ -1,4 +1,5 @@
 {% extends 'base.tpl' %}
+{% load thumbnail %}
 
 {% block content %}
 
@@ -8,7 +9,7 @@
 
 <div id="user-avatar">
     {% if profile %}
-        <img src="{{profile.avatar.url}}">
+        <img src="{{profile.avatar|thumbnail_url:'icon'}}">
     {% endif %}
 </div>
 

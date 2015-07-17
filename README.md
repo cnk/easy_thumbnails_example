@@ -68,6 +68,8 @@ We should not be accumulating this sort of cruft. To see how to fix this:
 
 ## Round 2: Clean up
 
+Checkout the 'round-2' tag and 'pip install -r requirements.txt'.
+
 To remove files that have been replaced / superceded, I added
 django-cleanup. Checkout the 'round-2' tag and 'pip install -r
 requirements.txt'. 
@@ -82,4 +84,31 @@ Next, most sites want to create thumbnails of their images for one
 reason or another. Let's do that using easy-thumbnails - in round 3:
 
     git checkout -b 'round-3'
+
+
+
+## Round 3: Creating thumbnails
+
+Checkout the 'round-3' tag and 'pip install -r requirements.txt' to
+install easy-thumbnails:
+https://github.com/SmileyChris/easy-thumbnails. Run the migrations and
+then start the server again.
+
+This round added configuration options (and database tables) for
+creating thumbnails to be created on the fly whenever they are
+requested. The generaged thumbnails are stored for the next time they
+are created. When using the file system, the images will be stored
+whereever THUMBNAIL_BASEDIR says. By default that will be where ever
+your ImageField is storing the originals.
+
+So upload a couple of different avatars to try them out - then look in
+the 'media/avatars/' folder. Notice that django-cleanup is still
+removing the obsoleted originals - but is not deleting the
+corresponding thumbnails. So once again we are accumulating cruft. I
+am not the first person to report this; but the ticket on the
+django-cleanup project -
+https://github.com/un1t/django-cleanup/issues/14 - says this should
+just work. Hmmm. I wonder what changed.
+
+
 

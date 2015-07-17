@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'easy_thumbnails',
     'user_profile',
     'django_cleanup',
 )
@@ -105,3 +106,10 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/files/'
 MEDIA_ROOT = BASE_DIR + '/media'
+
+# settings for creating a thumbnail for the avatar
+# for use by easy_thumbnails
+THUMBNAIL_ALIASES = {
+    'user_profile.UserProfile.avatar': {'icon': {'size': (100, 100), 'crop': True,}},
+}
+
