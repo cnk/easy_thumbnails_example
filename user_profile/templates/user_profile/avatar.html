@@ -1,0 +1,13 @@
+{% extends 'base.tpl' %}
+
+{% block content %}
+
+<h1 id="profile_h1">Avatar for {{ user.username }}</h1>
+
+<form id="avatar_upload_form" action="" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{avatar_form.as_p}}
+  <input type="submit" name="submit" value="Upload" />
+</form>
+
+{% endblock content %}

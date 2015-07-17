@@ -1,0 +1,15 @@
+{% extends 'base.tpl' %}
+
+{% block content %}
+
+<h1 id="profile_h1">Profile page for {{ user.username }}</h1>
+
+<a href="{% url 'avatar_form' %}">Upload a new avatar image</a>
+
+<div id="user-avatar">
+    {% if profile %}
+        <img src="{{profile.avatar.url}}">
+    {% endif %}
+</div>
+
+{% endblock content %}

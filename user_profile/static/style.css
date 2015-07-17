@@ -1,0 +1,10 @@
+body {
+    background-color: beige;
+    padding: 20px 50px;
+}
+
+#user-avatar img {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
