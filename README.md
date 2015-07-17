@@ -40,8 +40,8 @@ these static files:
         # and for media files
         urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-To run this example, clone the repository and set up to run the
-development server:
+To run this example, clone the repository and checkout the 'round-1'
+tag. Then set up to run the development server:
 
     git clone https://github.com/cnk/easy_thumbnails_example.git
     git checkout -b round-1
@@ -63,3 +63,23 @@ second time, you will see the second image has been uploaded with a
 We should not be accumulating this sort of cruft. To see how to fix this:
 
     git checkout -b 'round-2'
+
+
+
+## Round 2: Clean up
+
+To remove files that have been replaced / superceded, I added
+django-cleanup. Checkout the 'round-2' tag and 'pip install -r
+requirements.txt'. 
+
+Now when you upload a new image to replace your current avatar, the
+old file gets removed, leaving only the new image. Well actually
+django-cleanup only removes the file mentioned in the database table
+for the user profile. To get rid of the rest of the cruft from round
+1, you will need to delete the files yourself. 
+
+Next, most sites want to create thumbnails of their images for one
+reason or another. Let's do that using easy-thumbnails - in round 3:
+
+    git checkout -b 'round-3'
+
