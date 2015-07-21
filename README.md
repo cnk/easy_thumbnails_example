@@ -72,13 +72,13 @@ Checkout the 'round-2' tag and 'pip install -r requirements.txt'.
 
 To remove files that have been replaced / superceded, I added
 django-cleanup. Checkout the 'round-2' tag and 'pip install -r
-requirements.txt'. 
+requirements.txt'.
 
 Now when you upload a new image to replace your current avatar, the
 old file gets removed, leaving only the new image. Well actually
 django-cleanup only removes the file mentioned in the database table
 for the user profile. To get rid of the rest of the cruft from round
-1, you will need to delete the files yourself. 
+1, you will need to delete the files yourself.
 
 Next, most sites want to create thumbnails of their images for one
 reason or another. Let's do that using easy-thumbnails - in round 3:
@@ -109,6 +109,19 @@ am not the first person to report this; but the ticket on the
 django-cleanup project -
 https://github.com/un1t/django-cleanup/issues/14 - says this should
 just work. Hmmm. I wonder what changed.
+
+## Round 4: Cleaning Up Thumbnails
+
+Checkout the 'round-4' tag, run the migrations, and then start the
+server again.
+
+The django-cleaner maintainer pointed me to the test suite which is
+still passing. Looking at the tests, the main difference I see is that
+they are using `easy_thumbnails.fields.ThumbnailerImageField` while I
+have been using the stock Django `django.db.models.ImageField`. Sure
+enough, after I changed the field type, uploading a new avatar
+replaces the previous image AND it's thumbnail.
+
 
 
 

@@ -17,15 +17,15 @@ def login(request):
         user = authenticate(username=request.POST.get('username'), password=request.POST.get('password'))
         if user is not None and user.is_active:
             auth_login(request, user)
-            return redirect(request.REQUEST.get('next', '/'))
+            return redirect(request.POST.get('next', '/'))
         else:
             return render(request, 'login.html', {
                 'message': 'Username or password is incorrect.',
-                'next': request.REQUEST.get('next', '/'),
+                'next': request.POST.get('next', '/'),
                 'username': request.POST['username'],
             })
     elif request.method == 'GET':
-        return render(request, 'user_profile/login.html', {'next': request.REQUEST.get('next', '/'), 'username': ''})
+        return render(request, 'user_profile/login.html', {'next': request.GET.get('next', '/'), 'username': ''})
     else:
         return HttpResponseNotAllowed(['GET', 'POST'])
 
