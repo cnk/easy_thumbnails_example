@@ -110,6 +110,9 @@ django-cleanup project -
 https://github.com/un1t/django-cleanup/issues/14 - says this should
 just work. Hmmm. I wonder what changed.
 
+
+
+
 ## Round 4: Cleaning Up Thumbnails
 
 Checkout the 'round-4' tag, run the migrations, and then start the
@@ -125,3 +128,21 @@ replaces the previous image AND it's thumbnail.
 
 
 
+## Round 5: Storing Images in S3
+
+Checkout the 'round-5' tag and 'pip install -r requirements.txt' to
+install django-storages-redux and boto (a library for interacting with
+AWS S3). In order to make this example work, you will need to set up
+an S3 bucket and put the AWS credentials into the settings.py file.
+
+The instructions in this blog post,
+https://www.caktusgroup.com/blog/2014/11/10/Using-Amazon-S3-to-store-your-Django-sites-static-and-media-files/,
+are very useful for setting up your S3 bucket. Some of the rest of the
+information is good, but there are a few more configuration options
+now, so separating the static file and media storage options is
+easier.  This example contains the minimal configuration for moving
+media files into S3 while leaving the static files in the file system.
+
+Restart your server and upload a new avatar. Note that the url for
+your thumbnail is now on the server defined by the
+AWS_S3_CUSTOM_DOMAIN parameter.
