@@ -2,5 +2,3 @@ Django>=1.8
 Pillow
 django-cleanup
 easy-thumbnails
-boto
-django-storages-redux

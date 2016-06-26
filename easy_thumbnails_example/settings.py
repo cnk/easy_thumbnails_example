@@ -37,7 +37,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'storages',
     'easy_thumbnails',
     'user_profile',
     'django_cleanup',
@@ -105,17 +104,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Change how user-uploaded files are stored
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-THUMBNAIL_DEFAULT_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-
-AWS_ACCESS_KEY_ID = '<your key here>'
-AWS_SECRET_ACCESS_KEY = '<your secret here>'
-
-AWS_STORAGE_BUCKET_NAME = 'mybucket'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-
-MEDIA_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
+MEDIA_URL = '/files/'
+MEDIA_ROOT = BASE_DIR + '/media'
 
 # settings for creating a thumbnail for the avatar
 # for use by easy_thumbnails

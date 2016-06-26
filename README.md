@@ -113,7 +113,7 @@ just work. Hmmm. I wonder what changed.
 
 
 
-## Round 4: Cleaning Up Thumbnails
+## Round 4: Cleaning up thumbnails
 
 Checkout the 'round-4' tag, run the migrations, and then start the
 server again.
@@ -128,7 +128,7 @@ replaces the previous image AND it's thumbnail.
 
 
 
-## Round 5: Storing Images in S3
+## Round 5: Storing images in S3
 
 Checkout the 'round-5' tag and 'pip install -r requirements.txt' to
 install django-storages-redux and boto (a library for interacting with
@@ -146,3 +146,13 @@ media files into S3 while leaving the static files in the file system.
 Restart your server and upload a new avatar. Note that the url for
 your thumbnail is now on the server defined by the
 AWS_S3_CUSTOM_DOMAIN parameter.
+
+
+
+
+## Round 6: How to upload an image in a form + view test
+
+Checkout the 'round-6' tag. I don't want to have to depend on S3 when
+I am noodling around on my laptop, so the first commit in this round
+reverses the S3 storage configuration changes from round 5.
+
