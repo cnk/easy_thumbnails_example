@@ -152,7 +152,22 @@ AWS_S3_CUSTOM_DOMAIN parameter.
 
 ## Round 6: How to upload an image in a form + view test
 
-Checkout the 'round-6' tag. I don't want to have to depend on S3 when
-I am noodling around on my laptop, so the first commit in this round
-reverses the S3 storage configuration changes from round 5.
+Checkout the 'round-6' tag and 'pip install -r requirements.txt' to
+install factory_boy, a library that makes it easy to create model data
+in your tests.
+
+I don't want to have to depend on S3 when I am noodling around on my
+laptop, so the first commit in this round reverses the S3 storage
+configuration changes from round 5.
+
+Now, let's add some tests. In particular, let's test our image
+uploads. The easy_thumbnails app has some tests of its own, so I
+looked at that they do to create test files. The most interesting part
+is the function they use to create an image in memory and then pass
+that to the form for uploading. If you look at user_profile/tests.py,
+you will see a copy of the create_image function.
+
+Also of interest is the UserFactory in
+user_profiles/factories.py. This can be used and extended to create
+user objects in your test suites.
 
