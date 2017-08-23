@@ -26,10 +26,11 @@ def create_image(storage, filename, size=(100, 100), image_mode='RGB', image_for
 
 
 class UserTests(TestCase):
-    @classmethod
-    def setUpClass(cls):
-        super(UserTests, cls).setUpClass()
-        cls.user = UserFactory(username='me')
+    def setUp(self):
+        self.user = UserFactory(username='me')
+
+    def tearDown(self):
+        self.user.delete()
 
     def test_adding_an_avatar_image(self):
         # make sure we start out with no UserProfile (and thus no avatar)
